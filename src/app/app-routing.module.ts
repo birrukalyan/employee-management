@@ -5,11 +5,14 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGaurdService } from './service/auth-gaurd.service';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 const routes: Routes = [
-  { path:'employees', component: EmployeeComponent,canActivate:[AuthGaurdService]},
-  { path:'addemployee', component: AddEmployeeComponent,canActivate:[AuthGaurdService]},
-  { path: 'login', component: LoginComponent },
+ // { path:'employees', component: EmployeeComponent,canActivate:[AuthGaurdService]},
+  //{ path:'addemployee', component: AddEmployeeComponent,canActivate:[AuthGaurdService]},
+  { path:'employees', component: MainNavComponent,canActivate:[AuthGaurdService]},
+  { path:'addemployee', component: MainNavComponent,canActivate:[AuthGaurdService]},
+   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService] },
 ];
 

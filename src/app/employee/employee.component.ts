@@ -20,7 +20,7 @@ export class EmployeeComponent implements OnInit {
     }
   handleSuccessfulResponse(response)
   {
-      this.employees=response;
+      //this.employees=response;
   }
   deleteEmployee(employee: Employee): void {
     this.httpClientService.deleteEmployee(employee)

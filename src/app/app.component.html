@@ -1,7 +1,10 @@
- <app-header></app-header>
- <app-main-nav *ngIf="loginService.isUserLoggedIn()"></app-main-nav>
+ 
 
-<router-outlet>
-    
-</router-outlet> 
-<app-footer></app-footer>
+ <app-header></app-header>
+ <router-outlet>
+ <app-main-nav *ngIf="loginService.isUserLoggedIn()">
+     <button mat-raised-button color="accent">Click me</button>
+ </app-main-nav>
+</router-outlet>
+ <app-footer></app-footer> 
+

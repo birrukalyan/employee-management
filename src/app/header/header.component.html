@@ -1,13 +1,18 @@
 <header>
-    <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-light navbar-expand-md bg-light justify-content-center">
     <!--<div><a href="https://www.javainuse.com" class="navbar-brand">JavaInUse</a></div>-->
     
-    <ul class="navbar-nav">
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/employees" class="nav-link">View Employees</a></li>
+    <ul class="navbar-nav mr-auto">
+     <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/employees" class="nav-link">View Employees</a></li>
     <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addemployee" class="nav-link">Add New Employee</a></li>
-    <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
-  
+    -->
+    <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link" >Login</a></li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li>     
+        <a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a>
+      </li>
+        
     </ul>
     
     </nav>

@@ -3,25 +3,60 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <mat-toolbar color="primary" >
+          <button mat-icon-button (click)="snav.toggle()"> <mat-icon>menu</mat-icon></button>
+      </mat-toolbar>
+    <mat-nav-list >
+      <!--<a mat-list-item  routerLink="/employees" class="nav-link">View Employees</a>
+      <a mat-list-item  routerLink="/addemployee" class="nav-link">Add New Employee</a> -->
+      <a mat-list-item href="#">1.New</a>
+      <a mat-list-item  routerLink="/employees"  class="nav-link" (click)="onclickgetemployee()" >View Employees</a>
+      <a mat-list-item  routerLink="/addemployee"  class="nav-link" (click)="createEmployee()">Add New Employee</a>
+      <a mat-list-item href="#">Link2</a>
+      <a mat-list-item href="#">Link3</a>
+
+      
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>employee-management</span>
-    </mat-toolbar>
-    <!-- Add Content Here -->
+   
+      <!-- Add Content Here -->
+    
+      <table border="2">
+          <thead></thead>
+          <tr>
+            <th>name</th>
+            <th>designation</th>
+          </tr>
+          <tbody>
+              <tr *ngFor="let employee of employees">
+                  <td>{{employee.name}}</td>
+                  <td>{{employee.designation}}</td>
+                  <td><button class="btn btn-danger" (click)="deleteEmployee(employee)"> Delete Employee</button></td>
+              </tr>
+          </tbody>
+        </table>
+
+      <!--  <div class="col-md-6">
+            <h2 class="text-center">Add Employee</h2>
+            <form>
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="name" [(ngModel)]="user.name" placeholder="Name" name="name" class="form-control" id="name">
+              </div>
+            
+              <div class="form-group">
+                <label for="designation">Designation:</label>
+                <input [(ngModel)]="user.designation" placeholder="Designation" name="designation" class="form-control" id="designation">
+              </div>
+            
+              <div class="form-group">
+                <label for="empId">Employee Id</label>
+                <input [(ngModel)]="user.empId" placeholder="Employee Id" name="Employee Id" class="form-control" id="employeeid">
+              </div>
+              
+              <button class="btn btn-success" (click)="createEmployee()">Create</button>
+            </form>
+              </div>-->
   </mat-sidenav-content>
 </mat-sidenav-container>
